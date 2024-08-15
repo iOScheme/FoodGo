@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB9750F02C6D2C7700576A56 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */; };
+		CBB15D372C6D25E80099A1EE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */; };
 		CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */; };
 		CBE235222C6CF6E80018C2F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE235212C6CF6E80018C2F4 /* ContentView.swift */; };
 		CBE235242C6CF6E90018C2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE235232C6CF6E90018C2F4 /* Assets.xcassets */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		CBB15D382C6D265B0099A1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBE2351C2C6CF6E80018C2F4 /* FoodGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoApp.swift; sourceTree = "<group>"; };
 		CBE235212C6CF6E80018C2F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CBB15D342C6D25CB0099A1EE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CBB15D352C6D25D60099A1EE /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CBB15D352C6D25D60099A1EE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CBE235132C6CF6E80018C2F4 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +115,9 @@
 		CBE2351E2C6CF6E80018C2F4 /* FoodGo */ = {
 			isa = PBXGroup;
 			children = (
+				CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */,
+				CBB15D382C6D265B0099A1EE /* Info.plist */,
+				CBB15D342C6D25CB0099A1EE /* Resources */,
 				CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */,
 				CBE235212C6CF6E80018C2F4 /* ContentView.swift */,
 				CBE235232C6CF6E90018C2F4 /* Assets.xcassets */,
@@ -231,7 +255,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB15D372C6D25E80099A1EE /* Pacifico-Regular.ttf in Resources */,
 				CBE235272C6CF6E90018C2F4 /* Preview Assets.xcassets in Resources */,
+				CB9750F02C6D2C7700576A56 /* Launch Screen.storyboard in Resources */,
 				CBE235242C6CF6E90018C2F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,9 +451,11 @@
 				DEVELOPMENT_TEAM = 8DURMPUBZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodGo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,9 +482,11 @@
 				DEVELOPMENT_TEAM = 8DURMPUBZ2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodGo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
