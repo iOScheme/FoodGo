@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB49B15C2C6DF54C001ABC8D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB49B15B2C6DF54C001ABC8D /* HomeViewModel.swift */; };
 		CB9750F02C6D2C7700576A56 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */; };
 		CBB15D372C6D25E80099A1EE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */; };
 		CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */; };
-		CBE235222C6CF6E80018C2F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE235212C6CF6E80018C2F4 /* ContentView.swift */; };
+		CBE235222C6CF6E80018C2F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE235212C6CF6E80018C2F4 /* HomeView.swift */; };
 		CBE235242C6CF6E90018C2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE235232C6CF6E90018C2F4 /* Assets.xcassets */; };
 		CBE235272C6CF6E90018C2F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBE235262C6CF6E90018C2F4 /* Preview Assets.xcassets */; };
 		CBE235312C6CF6E90018C2F4 /* FoodGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE235302C6CF6E90018C2F4 /* FoodGoTests.swift */; };
@@ -36,12 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB49B15B2C6DF54C001ABC8D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		CBB15D382C6D265B0099A1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBE2351C2C6CF6E80018C2F4 /* FoodGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoApp.swift; sourceTree = "<group>"; };
-		CBE235212C6CF6E80018C2F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CBE235212C6CF6E80018C2F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CBE235232C6CF6E90018C2F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBE235262C6CF6E90018C2F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBE2352C2C6CF6E90018C2F4 /* FoodGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB49B1592C6DF535001ABC8D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CB49B15A2C6DF53C001ABC8D /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CB49B15A2C6DF53C001ABC8D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CBE235212C6CF6E80018C2F4 /* HomeView.swift */,
+				CB49B15B2C6DF54C001ABC8D /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		CBB15D342C6D25CB0099A1EE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,11 +134,11 @@
 		CBE2351E2C6CF6E80018C2F4 /* FoodGo */ = {
 			isa = PBXGroup;
 			children = (
+				CB49B1592C6DF535001ABC8D /* Modules */,
 				CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */,
 				CBB15D382C6D265B0099A1EE /* Info.plist */,
 				CBB15D342C6D25CB0099A1EE /* Resources */,
 				CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */,
-				CBE235212C6CF6E80018C2F4 /* ContentView.swift */,
 				CBE235232C6CF6E90018C2F4 /* Assets.xcassets */,
 				CBE235252C6CF6E90018C2F4 /* Preview Content */,
 			);
@@ -283,7 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBE235222C6CF6E80018C2F4 /* ContentView.swift in Sources */,
+				CBE235222C6CF6E80018C2F4 /* HomeView.swift in Sources */,
+				CB49B15C2C6DF54C001ABC8D /* HomeViewModel.swift in Sources */,
 				CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
