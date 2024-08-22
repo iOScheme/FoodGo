@@ -78,7 +78,7 @@ class HomeViewModel: ObservableObject {
     
     func getDayName(from date: Date) -> String {
         
-        dateFormatter.dateFormat = "EEEE" // "EEEE" gives the full day name, e.g., "Monday"
+        dateFormatter.dateFormat = "EEE" // "EEEE" gives the full day name, e.g., "Monday"
         return dateFormatter.string(from: date)
     }
     

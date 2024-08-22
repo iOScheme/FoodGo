@@ -13,25 +13,31 @@ struct HomeView: View {
     
     var body: some View {
         ScrollViewReader { proxy in
-            ScrollView {
-                ForEach(viewModel.getDaysInMonth(), id: \.self) { dayData in
-                    VStack {
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(viewModel.getDaysInMonth(), id: \.self) { dayData in
+                        
                         if dayData.currentDay {
-                            Text("\(dayData.dayNumber)").foregroundStyle(.red)
-                            Text(dayData.dayName).onAppear {
-                                proxy.scrollTo(dayData, anchor: .center)
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 25).frame(width: 30, height: 70).foregroundStyle(.red)
+                                VStack {
+                                    CalendarView(dayName: dayData.dayName, dayNumber: "\(dayData.dayNumber)")
+                                        .onAppear {
+                                            proxy.scrollTo(dayData, anchor: .center)
+                                        }
+                                }
+                                
                             }
                             
-                            
                         } else {
-                            Text(dayData.monthName)
-                            Text("\(dayData.dayNumber)")
-                            Text(dayData.dayName)
+                            CalendarView(dayName: dayData.dayName, dayNumber: "\(dayData.dayNumber)")
                         }
+                        Spacer(minLength: 24)
                     }
                 }
             }
         }
+        Spacer()
     }
 }
 
