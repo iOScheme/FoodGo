@@ -18,13 +18,12 @@ struct CalendarView: View {
                 RoundedRectangle(cornerRadius: 25).frame(width: 30, height: 70).foregroundStyle(.red)
             }
             VStack {
-                FoodGoTextView(dayName, 10)
-                FoodGoTextView(dayNumber, 10)
+                FoodGoTextView(dayName, 12, foregroundColor: isSelected ? .white : .black)
+                FoodGoTextView(dayNumber, 12)
                     .padding(EdgeInsets(top: 15, leading: 5, bottom: 15, trailing: 5))
                     .background(Color.white)
                     .clipShape(.circle)
-                
-            }
+                }
         }
     }
 }
