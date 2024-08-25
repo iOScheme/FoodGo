@@ -93,11 +93,28 @@ class HomeViewModel: ObservableObject {
     }
 }
 
-struct DayData: Identifiable, Hashable {
+struct DayData: Identifiable, Hashable, Equatable {
     let id = UUID()
     let dayName: String
     let dayNumber: Int
     let currentDay: Bool
     let monthName: String
+    
+    
+    // Custom Equatable conformance, ignoring `id`
+    static func == (lhs: DayData, rhs: DayData) -> Bool {
+        return lhs.dayName == rhs.dayName &&
+               lhs.dayNumber == rhs.dayNumber &&
+               lhs.currentDay == rhs.currentDay &&
+               lhs.monthName == rhs.monthName
+    }
+
+    // Custom Hashable conformance, ignoring `id`
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(dayName)
+        hasher.combine(dayNumber)
+        hasher.combine(currentDay)
+        hasher.combine(monthName)
+    }
 }
 

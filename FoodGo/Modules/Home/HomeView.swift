@@ -9,28 +9,33 @@ import SwiftUI
 
 struct HomeView: View {
     private let viewModel = HomeViewModel()
-    let days = HomeViewModel().getDaysInMonth()
-    
+    @State var selectedDay: DayData? = nil
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(viewModel.getDaysInMonth(), id: \.self) { dayData in
-                        
                         if dayData.currentDay {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 25).frame(width: 30, height: 70).foregroundStyle(.red)
-                                VStack {
-                                    CalendarView(dayName: dayData.dayName, dayNumber: "\(dayData.dayNumber)")
-                                        .onAppear {
-                                            proxy.scrollTo(dayData, anchor: .center)
-                                        }
+                            VStack {
+                                CalendarView(
+                                    dayName: dayData.dayName,
+                                    dayNumber: "\(dayData.dayNumber)",
+                                    isSelected: selectedDay == nil ? true : false
+                                ).onAppear {
+                                    proxy.scrollTo(dayData, anchor: .center)
                                 }
-                                
                             }
-                            
                         } else {
-                            CalendarView(dayName: dayData.dayName, dayNumber: "\(dayData.dayNumber)")
+                            CalendarView(
+                                dayName: dayData.dayName,
+                                dayNumber: "\(dayData.dayNumber)",
+                                isSelected: dayData == selectedDay
+                            ).onTapGesture {
+                                withAnimation {
+                                    selectedDay = dayData
+                                    proxy.scrollTo(dayData, anchor: .center)
+                                }
+                            }
                         }
                         Spacer(minLength: 24)
                     }
@@ -44,3 +49,4 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
