@@ -12,6 +12,7 @@ struct UserCard: View {
         HStack {
             Circle().foregroundStyle(.gray)
                 .frame(width: 52, height: 59)
+            Spacer(minLength: 16)
             VStack {
                 FoodGoTextView("Welcome", 20).frame(maxWidth: .infinity, alignment: .leading)
                 FoodGoTextView("User", 16).frame(maxWidth: .infinity, alignment: .leading)

@@ -16,6 +16,8 @@ struct HomeView: View {
                 UserCard()
             }
             Spacer(minLength: 24)
+            CalendarHeader(monthName: "June")
+            Spacer(minLength: 24)
             VStack {
                 CalendarScrollView().padding(EdgeInsets(top: 0, leading: 70, bottom: 0, trailing: 70))
             }
