@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+class CalendarViewModel: ObservableObject {
     private let calendar = Calendar.current
     private let currentDate = Date()
     private lazy var dateFormatter: DateFormatter  = {
@@ -28,7 +28,7 @@ class HomeViewModel: ObservableObject {
         return dateFormatter
     }()
     
-    private lazy var days: [DayData] = {
+    private lazy var days: [DayDateDomainModel] = {
        return getDaysInMonth()
     }()
     
@@ -41,7 +41,7 @@ class HomeViewModel: ObservableObject {
     }()
     
    
-     func getDaysInMonth() -> [DayData] {
+     func getDaysInMonth() -> [DayDateDomainModel] {
         var components = DateComponents()
         components.year = calendar.component(.year, from: Date())
         components.month = 1
@@ -55,7 +55,6 @@ class HomeViewModel: ObservableObject {
         // Determine the range of days in the month
         guard let range = calendar.range(of: .day, in: .year, for: startDate) else { return [] }
         
-        // Get the current day
         
         
         // Generate all dates within the range
@@ -63,11 +62,11 @@ class HomeViewModel: ObservableObject {
             let components = DateComponents(year: components.year, month: components.month, day: day)
             return calendar.date(from: components)
         }.map({
-            DayData(
-                dayName: getDayName(from: $0),
+            DayDateDomainModel(
+                dayName: dateFormatter.getDayName(from: $0, nameStyle: .short(.day)),
                 dayNumber: getDayNumber(from: $0),
                 currentDay: isCurrentDay(comparedDate: $0),
-                monthName: getMonthName(from: $0)
+                monthName: dateFormatter.getMonthName(from: $0, nameStyle: .full(.month))
             )
         })
     }
@@ -76,45 +75,7 @@ class HomeViewModel: ObservableObject {
         return calendar.component(.day, from: comparedDate) == currentDay && calendar.component(.month, from: comparedDate) == currentMonth
     }
     
-    func getDayName(from date: Date) -> String {
-        
-        dateFormatter.dateFormat = "EEE" // "EEEE" gives the full day name, e.g., "Monday"
-        return dateFormatter.string(from: date)
-    }
-    
     func getDayNumber(from date: Date) -> Int {
         return calendar.component(.day, from: date)
     }
-    
-    func getMonthName(from date: Date) -> String {
-        
-        dateFormatter.dateFormat = "MMMM" // "MMMM" gives full month name; use "MMM" for short name
-        return dateFormatter.string(from: date)
-    }
 }
-
-struct DayData: Identifiable, Hashable, Equatable {
-    let id = UUID()
-    let dayName: String
-    let dayNumber: Int
-    let currentDay: Bool
-    let monthName: String
-    
-    
-    // Custom Equatable conformance, ignoring `id`
-    static func == (lhs: DayData, rhs: DayData) -> Bool {
-        return lhs.dayName == rhs.dayName &&
-               lhs.dayNumber == rhs.dayNumber &&
-               lhs.currentDay == rhs.currentDay &&
-               lhs.monthName == rhs.monthName
-    }
-
-    // Custom Hashable conformance, ignoring `id`
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(dayName)
-        hasher.combine(dayNumber)
-        hasher.combine(currentDay)
-        hasher.combine(monthName)
-    }
-}
-
