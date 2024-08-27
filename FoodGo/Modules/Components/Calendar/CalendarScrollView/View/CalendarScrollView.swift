@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct CalendarScrollView: View {
-    private let viewModel = CalendarViewModel()
+    var days: [DayDateDomainModel]
+    
+    init(days: [DayDateDomainModel], selectedDay: DayDateDomainModel? = nil) {
+        self.days = days
+        self.selectedDay = selectedDay
+    }
+    
     @State var selectedDay: DayDateDomainModel? = nil
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(viewModel.getDaysInMonth(), id: \.self) { dayData in
+                    ForEach(days, id: \.self) { dayData in
                         if dayData.currentDay {
                             VStack {
                                 CalendarView(
@@ -35,12 +41,17 @@ struct CalendarScrollView: View {
                                     selectedDay = dayData
                                     proxy.scrollTo(dayData, anchor: .center)
                                 }
+                            }.onAppear {
+                                print(dayData.monthName)
                             }
                         }
                         Spacer(minLength: 24)
                     }
                 }
             }
+//            .onChange(of: days) {
+//                proxy.scrollTo(days.first, anchor: .center)
+//            }
         }
         Spacer()
     }

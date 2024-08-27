@@ -27,24 +27,37 @@ class CalendarViewModel: ObservableObject {
         
         return dateFormatter
     }()
-    
-    private lazy var days: [DayDateDomainModel] = {
-       return getDaysInMonth()
-    }()
-    
+    var monthName: String = ""
     lazy var currentDay: Int = {
         calendar.component(.day, from: currentDate)
     }()
-    
     lazy var currentMonth: Int = {
         calendar.component(.month, from: currentDate)
     }()
+    private var previousMonth: Int = 0
+    private var nextMonth: Int = 0
+    private var nextDate: Date? = nil
+    private var previousMonthDate: Date? = nil
     
+    func getPreviousMonth() ->  [DayDateDomainModel] {
+        let referenceDate = (nextDate ?? previousMonthDate)
+        let previousMonthDate = calendar.date(byAdding: .month, value: -1, to: referenceDate ?? currentDate)
+        nextDate = previousMonthDate
+      self.previousMonthDate = previousMonthDate
+      return getDaysInMonth(date: previousMonthDate)
+    }
+    
+    func getNextMonth() ->  [DayDateDomainModel] {
+      previousMonth = nextMonth + 1
+      let nextMonth = calendar.date(byAdding: .month, value: 1, to: nextDate ?? currentDate)
+      self.nextDate = nextMonth
+      return getDaysInMonth(date: nextMonth)
+    }
    
-     func getDaysInMonth() -> [DayDateDomainModel] {
+    func getDaysInMonth(date: Date? = nil) -> [DayDateDomainModel] {
         var components = DateComponents()
-        components.year = calendar.component(.year, from: Date())
-        components.month = 1
+        components.year = calendar.component(.year, from: date ?? Date())
+        components.month = getMonthNumber(from: date ?? currentDate)
         components.day = 1
         
         let dateComponents = DateComponents(year: components.year, month: components.month, day: components.day)
@@ -53,7 +66,7 @@ class CalendarViewModel: ObservableObject {
         guard let startDate = calendar.date(from: dateComponents) else { return [] }
         
         // Determine the range of days in the month
-        guard let range = calendar.range(of: .day, in: .year, for: startDate) else { return [] }
+         guard let range = calendar.range(of: .day, in: .month, for: startDate) else { return [] }
         
         
         
@@ -62,11 +75,12 @@ class CalendarViewModel: ObservableObject {
             let components = DateComponents(year: components.year, month: components.month, day: day)
             return calendar.date(from: components)
         }.map({
-            DayDateDomainModel(
+            monthName = dateFormatter.getMonthName(from: $0, nameStyle: .full(.month))
+            return DayDateDomainModel(
                 dayName: dateFormatter.getDayName(from: $0, nameStyle: .short(.day)),
                 dayNumber: getDayNumber(from: $0),
                 currentDay: isCurrentDay(comparedDate: $0),
-                monthName: dateFormatter.getMonthName(from: $0, nameStyle: .full(.month))
+                monthName: monthName
             )
         })
     }
@@ -77,5 +91,9 @@ class CalendarViewModel: ObservableObject {
     
     func getDayNumber(from date: Date) -> Int {
         return calendar.component(.day, from: date)
+    }
+    
+    func getMonthNumber(from date: Date) -> Int {
+        return calendar.component(.month, from: date)
     }
 }

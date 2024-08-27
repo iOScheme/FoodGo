@@ -162,6 +162,15 @@
 			path = CalendarHeader;
 			sourceTree = "<group>";
 		};
+		CB0EBA8D2C7BB1E900B14365 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				CB0EBA8B2C7BAFAB00B14365 /* FoodGoImageView.swift */,
+				CB83A69D2C7634FC00CDC55A /* FoodGoTextView.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
 		CB49B1592C6DF535001ABC8D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,10 +191,10 @@
 		CB83A6962C7632B600CDC55A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CB0EBA852C7B6F1300B14365 /* UserCard */,
-				CB0EBA812C7B6A7400B14365 /* Helpers */,
 				CB83A6972C7632BD00CDC55A /* Calendar */,
-				CB83A69D2C7634FC00CDC55A /* FoodGoTextView.swift */,
+				CB0EBA812C7B6A7400B14365 /* Helpers */,
+				CB0EBA852C7B6F1300B14365 /* UserCard */,
+				CB0EBA8D2C7BB1E900B14365 /* Generic */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -196,7 +205,6 @@
 				CB0EBA882C7BAE5E00B14365 /* CalendarHeader */,
 				CB0EBA792C7B69AD00B14365 /* CalendarScrollView */,
 				CB83A6982C7632C100CDC55A /* CalendarView */,
-				CB0EBA8B2C7BAFAB00B14365 /* FoodGoImageView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";

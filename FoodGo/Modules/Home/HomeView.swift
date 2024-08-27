@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    private let viewModel = CalendarViewModel()
+    @State var toggledMonth: [DayDateDomainModel] = []
+    
     var body: some View {
         Spacer(minLength: 24)
         VStack {
@@ -16,12 +19,18 @@ struct HomeView: View {
                 UserCard()
             }
             Spacer(minLength: 24)
-            CalendarHeader(monthName: "June")
+            CalendarHeader(monthName: viewModel.monthName, leftArrowAction: {
+                toggledMonth = viewModel.getPreviousMonth()
+            }, rightArrowAction: {
+                toggledMonth = viewModel.getNextMonth()
+            })
             Spacer(minLength: 24)
             VStack {
-                CalendarScrollView().padding(EdgeInsets(top: 0, leading: 70, bottom: 0, trailing: 70))
+                CalendarScrollView(days: toggledMonth).padding(EdgeInsets(top: 0, leading: 70, bottom: 0, trailing: 70))
             }
             Spacer()
+        }.onAppear {
+            toggledMonth = viewModel.getDaysInMonth()
         }
        
     }
