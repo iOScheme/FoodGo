@@ -17,9 +17,11 @@ struct DayDateDomainModel: Identifiable, Hashable, Equatable {
     // Custom Equatable conformance, ignoring `id`
     static func == (lhs: DayDateDomainModel, rhs: DayDateDomainModel) -> Bool {
         return lhs.dayName == rhs.dayName &&
-               lhs.dayNumber == rhs.dayNumber &&
-               lhs.currentDay == rhs.currentDay &&
-               lhs.monthName == rhs.monthName
+        lhs.dayNumber == rhs.dayNumber &&
+        lhs.currentDay == rhs.currentDay &&
+        lhs.monthName == rhs.monthName &&
+        lhs.id == rhs.id
+        
     }
 
     // Custom Hashable conformance, ignoring `id`
@@ -28,5 +30,6 @@ struct DayDateDomainModel: Identifiable, Hashable, Equatable {
         hasher.combine(dayNumber)
         hasher.combine(currentDay)
         hasher.combine(monthName)
+        hasher.combine(id)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class CalendarViewModel: ObservableObject {
+class CalendarViewModel {
     private let calendar = Calendar.current
     private let currentDate = Date()
     private lazy var dateFormatter: DateFormatter  = {

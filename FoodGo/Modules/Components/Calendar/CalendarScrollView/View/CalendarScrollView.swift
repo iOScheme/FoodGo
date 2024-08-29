@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct CalendarScrollView: View {
-    var days: [DayDateDomainModel]
+    var days: [DayDateDomainModel] = []
+    @State var selectedDay: DayDateDomainModel? = nil
     
     init(days: [DayDateDomainModel], selectedDay: DayDateDomainModel? = nil) {
         self.days = days
         self.selectedDay = selectedDay
     }
     
-    @State var selectedDay: DayDateDomainModel? = nil
+   
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(days, id: \.self) { dayData in
+                    ForEach(days, id: \.id) { dayData in
                         if dayData.currentDay {
                             VStack {
                                 CalendarView(
@@ -28,7 +29,7 @@ struct CalendarScrollView: View {
                                     dayNumber: "\(dayData.dayNumber)",
                                     isSelected: selectedDay == nil ? true : false
                                 ).onAppear {
-                                    proxy.scrollTo(dayData, anchor: .center)
+                                    proxy.scrollTo(dayData.id, anchor: .center)
                                 }
                             }
                         } else {
@@ -39,19 +40,25 @@ struct CalendarScrollView: View {
                             ).onTapGesture {
                                 withAnimation {
                                     selectedDay = dayData
-                                    proxy.scrollTo(dayData, anchor: .center)
+                                    proxy.scrollTo(dayData.id, anchor: .center)
                                 }
                             }.onAppear {
                                 print(dayData.monthName)
                             }
                         }
                         Spacer(minLength: 24)
+                    }.onChange(of: days) { _, newValue in
+                        withAnimation {
+                            /// needs the new value because each cell has a new identity so its need this new identity to know
+                            /// at what new cell it has to scroll
+                            /// old identity its distroyed
+                            if let firstDay = newValue.first {
+                                proxy.scrollTo(firstDay.id, anchor: .center)
+                            }
+                        }
                     }
                 }
             }
-//            .onChange(of: days) {
-//                proxy.scrollTo(days.first, anchor: .center)
-//            }
         }
         Spacer()
     }

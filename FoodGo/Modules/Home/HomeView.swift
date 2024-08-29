@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    private let viewModel = CalendarViewModel()
+    private var viewModel = CalendarViewModel()
     @State var toggledMonth: [DayDateDomainModel] = []
     
     var body: some View {
