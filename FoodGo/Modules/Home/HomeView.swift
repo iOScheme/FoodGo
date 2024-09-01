@@ -19,8 +19,8 @@ struct HomeView: View {
                 UserCard()
             }
             Spacer(minLength: 24)
-            CalendarHeader(monthName: viewModel.monthName, leftArrowAction: {
-                toggledMonth = viewModel.getPreviousMonth()
+            CalendarHeader(monthName: viewModel.monthName, year: viewModel.currentYear, leftArrowAction: {
+                toggledMonth = viewModel.goToPreviousMonth()
             }, rightArrowAction: {
                 toggledMonth = viewModel.getNextMonth()
             })

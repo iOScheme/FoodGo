@@ -21,12 +21,17 @@ class CalendarViewModel {
         let dateComponents = DateComponents(year: year, month: month, day: day)
         
         // Get the current day of the month
-         let startDate = calendar.date(from: dateComponents)
+        let startDate = calendar.date(from: dateComponents)
         
         dateFormatter.defaultDate = startDate
         
         return dateFormatter
     }()
+    
+    init() {
+        updateYear(for: currentDate)
+    }
+    
     var monthName: String = ""
     lazy var currentDay: Int = {
         calendar.component(.day, from: currentDate)
@@ -34,24 +39,48 @@ class CalendarViewModel {
     lazy var currentMonth: Int = {
         calendar.component(.month, from: currentDate)
     }()
-    private var previousMonth: Int = 0
-    private var nextMonth: Int = 0
+    
     private var nextDate: Date? = nil
     private var previousMonthDate: Date? = nil
+    var currentYear = 0
     
     func getPreviousMonth() ->  [DayDateDomainModel] {
         let referenceDate = (nextDate ?? previousMonthDate)
         let previousMonthDate = calendar.date(byAdding: .month, value: -1, to: referenceDate ?? currentDate)
         nextDate = previousMonthDate
-      self.previousMonthDate = previousMonthDate
-      return getDaysInMonth(date: previousMonthDate)
+        self.previousMonthDate = previousMonthDate
+        return getDaysInMonth(date: previousMonthDate)
+    }
+    
+    func goToPreviousMonth() -> [DayDateDomainModel] {
+        let referenceDate = (nextDate ?? previousMonthDate)
+        var dateComponents = DateComponents()
+        dateComponents.month = -1 // Move back one month
+
+        // Use the current calendar to calculate the previous date
+        let calendar = Calendar.current
+        let previousDate = calendar.date(byAdding: dateComponents, to: referenceDate ?? currentDate)
+        updateYear(for: previousDate)
+        self.previousMonthDate = previousDate
+        return getDaysInMonth(date: previousMonthDate)
     }
     
     func getNextMonth() ->  [DayDateDomainModel] {
-      previousMonth = nextMonth + 1
-      let nextMonth = calendar.date(byAdding: .month, value: 1, to: nextDate ?? currentDate)
-      self.nextDate = nextMonth
-      return getDaysInMonth(date: nextMonth)
+        let referenceDate = (nextDate ?? previousMonthDate)
+        var dateComponents = DateComponents()
+        dateComponents.month = +1 // Move forward one month
+
+        // Use the current calendar to calculate the next date
+        let calendar = Calendar.current
+        let nextMonth = calendar.date(byAdding: dateComponents, to: referenceDate ?? currentDate)
+        updateYear(for: nextMonth)
+        self.nextDate = nextMonth
+        return getDaysInMonth(date: nextMonth)
+    }
+    
+    private func updateYear(for date: Date?) {
+        guard let date = date else { return }
+        currentYear = calendar.component(.year, from: date)
     }
    
     func getDaysInMonth(date: Date? = nil) -> [DayDateDomainModel] {
