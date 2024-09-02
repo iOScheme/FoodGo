@@ -44,13 +44,7 @@ class CalendarViewModel {
     private var previousMonthDate: Date? = nil
     var currentYear = 0
     
-    func getPreviousMonth() ->  [DayDateDomainModel] {
-        let referenceDate = (nextDate ?? previousMonthDate)
-        let previousMonthDate = calendar.date(byAdding: .month, value: -1, to: referenceDate ?? currentDate)
-        nextDate = previousMonthDate
-        self.previousMonthDate = previousMonthDate
-        return getDaysInMonth(date: previousMonthDate)
-    }
+    
     
     func goToPreviousMonth() -> [DayDateDomainModel] {
         let referenceDate = (nextDate ?? previousMonthDate)
@@ -61,6 +55,7 @@ class CalendarViewModel {
         let calendar = Calendar.current
         let previousDate = calendar.date(byAdding: dateComponents, to: referenceDate ?? currentDate)
         updateYear(for: previousDate)
+        nextDate = previousMonthDate
         self.previousMonthDate = previousDate
         return getDaysInMonth(date: previousMonthDate)
     }
