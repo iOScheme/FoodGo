@@ -23,7 +23,6 @@ struct CalendarScrollView: View {
                 HStack {
                     ForEach(days, id: \.id) { dayData in
                         if dayData.currentDay {
-                            VStack {
                                 CalendarView(
                                     dayName: dayData.dayName,
                                     dayNumber: "\(dayData.dayNumber)",
@@ -31,7 +30,7 @@ struct CalendarScrollView: View {
                                 ).onAppear {
                                     proxy.scrollTo(dayData.id, anchor: .center)
                                 }
-                            }
+                            
                         } else {
                             CalendarView(
                                 dayName: dayData.dayName,
@@ -60,7 +59,6 @@ struct CalendarScrollView: View {
                 }
             }
         }
-        Spacer()
     }
 }
 
