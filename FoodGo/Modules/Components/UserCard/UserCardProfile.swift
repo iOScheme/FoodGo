@@ -36,7 +36,6 @@ struct UserCardProfile: View {
                 hideKeyboard: _textFieldisFocused
             )
             .padding()
-            Spacer()
         }.onTapGesture {
             textFieldisFocused = false
         }
