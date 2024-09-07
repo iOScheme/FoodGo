@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct FoodGoApp: App {
     var body: some Scene {
         WindowGroup {
             FoodGoTabBar()
-        }
+        }.modelContainer(for: UserPreferences.self)
     }
 }
