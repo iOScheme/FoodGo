@@ -12,14 +12,17 @@ struct UserCardProfile: View {
     let circleHeight: CGFloat
     let mainText: String
     let mainTextSize: CGFloat
-    @State private var username: String = ""
+    let placeHolder: String
+    @Binding private var username: String
     @FocusState private var textFieldisFocused: Bool
     
-    init(circleWidth: CGFloat, circleHeight: CGFloat, mainText: String, mainTextSize: CGFloat) {
+    init(placeHolder: String, circleWidth: CGFloat, circleHeight: CGFloat, mainText: String, mainTextSize: CGFloat, username: Binding<String>) {
+        self.placeHolder = placeHolder
         self.circleWidth = circleWidth
         self.circleHeight = circleHeight
         self.mainText = mainText
         self.mainTextSize = mainTextSize
+        self._username = username
     }
     
     var body: some View {
@@ -30,7 +33,7 @@ struct UserCardProfile: View {
                     height: circleHeight
                 )
             FoodGoTextField(
-                placeHolder: "Username",
+                placeHolder: placeHolder,
                 fontSize: mainTextSize,
                 binding: $username,
                 hideKeyboard: _textFieldisFocused
@@ -44,9 +47,9 @@ struct UserCardProfile: View {
 
 #Preview {
     UserCardProfile(
-        circleWidth: 150,
+        placeHolder: "Placegolder", circleWidth: 150,
         circleHeight: 144,
         mainText: "Welcome",
-        mainTextSize: 40
+        mainTextSize: 40, username: .constant("Username")
     )
 }
