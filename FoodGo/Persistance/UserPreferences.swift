@@ -12,7 +12,7 @@ import SwiftData
 class UserPreferences {
     var name: String
     var weight: Int
-    var heightt: Int
+    var height: Int
     var plan: UserPlan
     var id: UUID
     
@@ -20,7 +20,7 @@ class UserPreferences {
         self.id = id
         self.name = name
         self.weight = weight
-        self.heightt = heightt
+        self.height = heightt
         self.plan = plan
     }
 }

@@ -21,6 +21,9 @@
 		CB83A69A2C7632CC00CDC55A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83A6992C7632CC00CDC55A /* CalendarView.swift */; };
 		CB83A69C2C76334900CDC55A /* Questrial-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB83A69B2C76334900CDC55A /* Questrial-Regular.ttf */; };
 		CB83A69E2C7634FC00CDC55A /* FoodGoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB83A69D2C7634FC00CDC55A /* FoodGoTextView.swift */; };
+		CB96D4782C8F7D6F00D18A2A /* ProfileEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96D4772C8F7D6F00D18A2A /* ProfileEdit.swift */; };
+		CB96D47A2C8F7D8200D18A2A /* ProfileRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96D4792C8F7D8200D18A2A /* ProfileRead.swift */; };
+		CB96D47D2C8F7ED600D18A2A /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96D47C2C8F7ED600D18A2A /* ProfileEditViewModel.swift */; };
 		CB9750F02C6D2C7700576A56 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */; };
 		CBB15D372C6D25E80099A1EE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */; };
 		CBDFE48A2C8BA2EA00683718 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDFE4892C8BA2EA00683718 /* UserPreferences.swift */; };
@@ -65,6 +68,9 @@
 		CB83A6992C7632CC00CDC55A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		CB83A69B2C76334900CDC55A /* Questrial-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Questrial-Regular.ttf"; sourceTree = "<group>"; };
 		CB83A69D2C7634FC00CDC55A /* FoodGoTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoTextView.swift; sourceTree = "<group>"; };
+		CB96D4772C8F7D6F00D18A2A /* ProfileEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEdit.swift; sourceTree = "<group>"; };
+		CB96D4792C8F7D8200D18A2A /* ProfileRead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRead.swift; sourceTree = "<group>"; };
+		CB96D47C2C8F7ED600D18A2A /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		CBB15D382C6D265B0099A1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -214,6 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				CB80E6F22C8796D600BE8DBB /* FoodGoProfile.swift */,
+				CB96D4772C8F7D6F00D18A2A /* ProfileEdit.swift */,
+				CB96D4792C8F7D8200D18A2A /* ProfileRead.swift */,
+				CB96D47C2C8F7ED600D18A2A /* ProfileEditViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -468,7 +477,9 @@
 				CBE235222C6CF6E80018C2F4 /* HomeView.swift in Sources */,
 				CBDFE48A2C8BA2EA00683718 /* UserPreferences.swift in Sources */,
 				CB4E74832C88DB1B002E7105 /* FoodGoTextField.swift in Sources */,
+				CB96D47A2C8F7D8200D18A2A /* ProfileRead.swift in Sources */,
 				CB0EBA842C7B6A8200B14365 /* DateFormatter+Helpers.swift in Sources */,
+				CB96D4782C8F7D6F00D18A2A /* ProfileEdit.swift in Sources */,
 				CB0EBA7B2C7B69C300B14365 /* CalendarScrollView.swift in Sources */,
 				CB80E6F02C87964500BE8DBB /* FoodGoTabBar.swift in Sources */,
 				CB49B15C2C6DF54C001ABC8D /* CalendarViewModel.swift in Sources */,
@@ -480,6 +491,7 @@
 				CB4E74812C88D870002E7105 /* UserCardProfile.swift in Sources */,
 				CB0EBA802C7B6A2D00B14365 /* DayDataDomainModel.swift in Sources */,
 				CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */,
+				CB96D47D2C8F7ED600D18A2A /* ProfileEditViewModel.swift in Sources */,
 				CB83A69E2C7634FC00CDC55A /* FoodGoTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
