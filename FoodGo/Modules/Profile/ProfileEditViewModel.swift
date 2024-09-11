@@ -9,8 +9,8 @@ import Foundation
 import SwiftData
 
 public final class ProfileEditViewModel: ObservableObject {
-    let configuration = ModelConfiguration(isStoredInMemoryOnly: false, allowsSave: true)
-    let container: ModelContainer?
+    private let configuration = ModelConfiguration(isStoredInMemoryOnly: false, allowsSave: true)
+    private let container: ModelContainer?
 
     init() {
         self.container = try? ModelContainer(

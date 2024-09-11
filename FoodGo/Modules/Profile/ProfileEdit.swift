@@ -84,23 +84,24 @@ struct ProfileEdit: View {
                         trailing: 32
                     )
                 )
+                Button("Save") {
+                    if let userPrefernces = userPreferences {
+                        userPrefernces.height = height.isEmpty ?  userPrefernces.height : Int(height) ?? 0
+                        userPrefernces.weight = height.isEmpty ?  userPrefernces.height : Int(kg) ??  0
+                        userPrefernces.plan = .gainWeight
+                        userPrefernces.name = username.isEmpty ? userPrefernces.name : username
+                    } else {
+                        model.save(model: UserPreferences(
+                            id: UUID(),
+                            name: username,
+                            weight: Int(kg) ?? 0,
+                            heightt: Int(height) ?? 0,
+                            plan: .gainWeight
+                        )
+                        )
+                    }
+                }
                 Spacer()
-            }
-        }.onSubmit {
-            if let userPrefernces = userPreferences {
-                userPrefernces.height = Int(height) ?? 0
-                userPrefernces.weight = Int(kg) ?? 0
-                userPrefernces.plan = .gainWeight
-                userPrefernces.name = username
-            } else {
-                model.save(model: UserPreferences(
-                    id: UUID(),
-                    name: username,
-                    weight: Int(kg) ?? 0,
-                    heightt: Int(height) ?? 0,
-                    plan: .gainWeight
-                )
-                )
             }
         }
         

@@ -15,14 +15,16 @@ struct UserCardProfile: View {
     let placeHolder: String
     @Binding private var username: String
     @FocusState private var textFieldisFocused: Bool
+    private let readOnly: Bool
     
-    init(placeHolder: String, circleWidth: CGFloat, circleHeight: CGFloat, mainText: String, mainTextSize: CGFloat, username: Binding<String>) {
+    init(placeHolder: String, circleWidth: CGFloat, circleHeight: CGFloat, mainText: String, mainTextSize: CGFloat, username: Binding<String>, readOnly: Bool = false) {
         self.placeHolder = placeHolder
         self.circleWidth = circleWidth
         self.circleHeight = circleHeight
         self.mainText = mainText
         self.mainTextSize = mainTextSize
         self._username = username
+        self.readOnly = readOnly
     }
     
     var body: some View {
@@ -32,13 +34,18 @@ struct UserCardProfile: View {
                     width: circleWidth,
                     height: circleHeight
                 )
-            FoodGoTextField(
-                placeHolder: placeHolder,
-                fontSize: mainTextSize,
-                binding: $username,
-                hideKeyboard: _textFieldisFocused
-            )
-            .padding()
+            if readOnly {
+                FoodGoTextView(placeHolder, mainTextSize)
+                    .padding()
+            } else {
+                FoodGoTextField(
+                    placeHolder: placeHolder,
+                    fontSize: mainTextSize,
+                    binding: $username,
+                    hideKeyboard: _textFieldisFocused
+                ).padding()
+            }
+            
         }.onTapGesture {
             textFieldisFocused = false
         }
