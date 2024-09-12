@@ -87,7 +87,7 @@ struct ProfileEdit: View {
                 Button("Save") {
                     if let userPrefernces = userPreferences {
                         userPrefernces.height = height.isEmpty ?  userPrefernces.height : Int(height) ?? 0
-                        userPrefernces.weight = height.isEmpty ?  userPrefernces.height : Int(kg) ??  0
+                        userPrefernces.weight = kg.isEmpty ?  userPrefernces.weight : Int(kg) ??  0
                         userPrefernces.plan = .gainWeight
                         userPrefernces.name = username.isEmpty ? userPrefernces.name : username
                     } else {

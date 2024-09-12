@@ -24,7 +24,10 @@ struct FoodGoProfile: View {
     
     var body: some View {
         VStack {
-            Toggle("Edit", isOn: $toggleIsOn).padding()
+            HStack(alignment: .center) {
+                Toggle("Edit", isOn: $toggleIsOn)
+            }
+            
             if !toggleIsOn {
                 ProfileRead()
             } else {
