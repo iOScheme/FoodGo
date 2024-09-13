@@ -13,6 +13,7 @@ struct ProfileEdit: View {
     @Binding private var height: String
     @Binding private var pickerSelection: UserPlan
     @Binding private var username: String
+    @State private var isPresented: Bool
     @FocusState private var textFieldisFocused: Bool
     private let model: ProfileEditViewModel = ProfileEditViewModel()
     private let userPreferences: UserPreferences?
@@ -24,6 +25,7 @@ struct ProfileEdit: View {
         self._pickerSelection = pickerSelection
         self._username = username
         self.userPreferences = model.retrieve(type: UserPreferences.self)
+        self.isPresented = .init(false)
     }
     
     var body: some View {
@@ -89,11 +91,13 @@ struct ProfileEdit: View {
                     )
                 )
                 Button("Save") {
+                    isPresented.toggle()
                     if let userPrefernces = userPreferences {
                         userPrefernces.height = height.isEmpty ?  userPrefernces.height : Int(height) ?? 0
                         userPrefernces.weight = kg.isEmpty ?  userPrefernces.weight : Int(kg) ??  0
                         userPrefernces.plan = pickerSelection
                         userPrefernces.name = username.isEmpty ? userPrefernces.name : username
+                    
                     } else {
                         model.save(model: UserPreferences(
                             id: UUID(),
@@ -104,7 +108,7 @@ struct ProfileEdit: View {
                         )
                         )
                     }
-                }
+                }.alert("User updated", isPresented: $isPresented) {}
                 Spacer()
             }
         }
