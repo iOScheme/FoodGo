@@ -14,7 +14,7 @@ struct FoodGoTabBar: View {
                 Text("Home")
             }
             
-            FoodGoProfile(kg: "", height: "", pickerSelection: "", username: "").tabItem {
+            FoodGoProfile(kg: "", height: "", pickerSelection: .gainWeight, username: "").tabItem {
                 Text("Profile")
             }
         }

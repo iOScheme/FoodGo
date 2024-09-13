@@ -43,7 +43,7 @@ struct ProfileRead: View {
                             20,
                             foregroundColor: .black
                         )
-                    }
+                    }.padding(EdgeInsets(top: 0, leading: 0, bottom: 16, trailing: 0))
                     HStack {
                         FoodGoTextView(
                             "Height",
@@ -59,21 +59,19 @@ struct ProfileRead: View {
                     }
                     
                     HStack {
+                        FoodGoTextView(
+                            "Plan",
+                            20,
+                            foregroundColor: .black
+                        )
                         Spacer()
-                        
-                        Picker("Plan", selection: .constant("value")) {
-                            Text("Loose weight")
-                            Text("Gain weight")
-                        }.pickerStyle(.menu)
-                    }
-                }.padding(
-                    EdgeInsets(
-                        top: 16,
-                        leading: 32,
-                        bottom: 16,
-                        trailing: 32
-                    )
-                )
+                        FoodGoTextView(
+                            userPreferences?.plan.rawValue ?? "Select a plan",
+                            20,
+                            foregroundColor: .black
+                        )
+                    }.padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
+                }
                 Spacer()
             }
         }

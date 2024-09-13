@@ -11,10 +11,10 @@ import SwiftData
 struct FoodGoProfile: View {
     @State private var kg: String
     @State private var height: String
-    @State private var pickerSelection: String
+    @State private var pickerSelection: UserPlan
     @State private var username: String
     @State private var toggleIsOn: Bool
-    init(kg: String, height: String, pickerSelection: String, username: String) {
+    init(kg: String, height: String, pickerSelection: UserPlan, username: String) {
         self.kg = kg
         self.height = height
         self.pickerSelection = pickerSelection
@@ -25,8 +25,10 @@ struct FoodGoProfile: View {
     var body: some View {
         VStack {
             HStack(alignment: .center) {
-                Toggle("Edit", isOn: $toggleIsOn)
-            }
+                Spacer().layoutPriority(1)
+                Toggle("Edit", isOn: $toggleIsOn).layoutPriority(1)
+                Spacer().layoutPriority(1)
+            }.padding()
             
             if !toggleIsOn {
                 ProfileRead()
@@ -43,5 +45,5 @@ struct FoodGoProfile: View {
 }
 
 #Preview {
-    FoodGoProfile(kg: "", height: "", pickerSelection: "", username: "")
+    FoodGoProfile(kg: "", height: "", pickerSelection: .gainWeight, username: "")
 }

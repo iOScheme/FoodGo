@@ -11,14 +11,14 @@ import SwiftData
 struct ProfileEdit: View {
     @Binding private var kg: String
     @Binding private var height: String
-    @Binding private var pickerSelection: String
+    @Binding private var pickerSelection: UserPlan
     @Binding private var username: String
     @FocusState private var textFieldisFocused: Bool
     private let model: ProfileEditViewModel = ProfileEditViewModel()
     private let userPreferences: UserPreferences?
     
     
-    init(kg: Binding<String>, height: Binding<String>, pickerSelection: Binding<String>, username: Binding<String>) {
+    init(kg: Binding<String>, height: Binding<String>, pickerSelection: Binding<UserPlan>, username: Binding<String>) {
         self._kg = kg
         self._height = height
         self._pickerSelection = pickerSelection
@@ -54,7 +54,7 @@ struct ProfileEdit: View {
                             hideKeyboard: _textFieldisFocused,
                             inputType: .numberPad
                         )
-                    }
+                    }.padding()
                     HStack {
                         FoodGoTextView(
                             "Height(cm)",
@@ -74,8 +74,10 @@ struct ProfileEdit: View {
                         Spacer()
                         
                         Picker("Plan", selection: $pickerSelection) {
-                            Text("Loose weight")
-                            Text("Gain weight")
+                            ForEach(UserPlan.allCases, id: \.self) {
+                                Text($0.rawValue)
+                            }
+                           
                         }.pickerStyle(.menu)
                     }
                 }.padding(
@@ -90,7 +92,7 @@ struct ProfileEdit: View {
                     if let userPrefernces = userPreferences {
                         userPrefernces.height = height.isEmpty ?  userPrefernces.height : Int(height) ?? 0
                         userPrefernces.weight = kg.isEmpty ?  userPrefernces.weight : Int(kg) ??  0
-                        userPrefernces.plan = .gainWeight
+                        userPrefernces.plan = pickerSelection
                         userPrefernces.name = username.isEmpty ? userPrefernces.name : username
                     } else {
                         model.save(model: UserPreferences(

@@ -25,7 +25,7 @@ class UserPreferences {
     }
 }
 
-enum UserPlan: String, Codable {
+enum UserPlan: String, Codable, CaseIterable {
     case looseWeight = "Loose Weight"
-    case gainWeight = "Gain Weeight"
+    case gainWeight = "Gain Weight"
 }
