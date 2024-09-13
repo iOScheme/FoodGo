@@ -46,17 +46,18 @@ struct ProfileEdit: View {
                 )
                 VStack {
                     HStack {
-                        FoodGoTextView("Weight", 20, foregroundColor: .black)
+                        FoodGoTextView("Weight(kg)", 20, foregroundColor: .black)
                         Spacer()
                         FoodGoTextField(
                             placeHolder: userPreferences?.weight.description ?? "kg",
                             binding: $kg,
-                            hideKeyboard: _textFieldisFocused
+                            hideKeyboard: _textFieldisFocused,
+                            inputType: .numberPad
                         )
                     }
                     HStack {
                         FoodGoTextView(
-                            "Height",
+                            "Height(cm)",
                             20,
                             foregroundColor: .black
                         )
@@ -64,7 +65,8 @@ struct ProfileEdit: View {
                         FoodGoTextField(
                             placeHolder: userPreferences?.height.description ?? "Height",
                             binding: $height,
-                            hideKeyboard: _textFieldisFocused
+                            hideKeyboard: _textFieldisFocused,
+                            inputType: .numberPad
                         )
                     }
                     

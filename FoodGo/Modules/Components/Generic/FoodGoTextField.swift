@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct FoodGoTextField: View {
-    let fontSize: CGFloat
-    let placeHolder: String
-    let foregroundColor: Color
+    private let fontSize: CGFloat
+    private let placeHolder: String
+    private let foregroundColor: Color
+    private let inputType: UIKeyboardType
     @Binding private var binding: String
     @FocusState private var hideKeyboard: Bool
     
@@ -19,13 +20,15 @@ struct FoodGoTextField: View {
         fontSize: CGFloat = 16,
         binding: Binding<String>,
         foregroundColor: Color = .black,
-        hideKeyboard: FocusState<Bool>
+        hideKeyboard: FocusState<Bool>,
+        inputType: UIKeyboardType = .default
     ) {
         self.placeHolder = placeHolder
         self.fontSize = fontSize
         self.foregroundColor = foregroundColor
         self._binding = binding
         self._hideKeyboard = hideKeyboard
+        self.inputType = inputType
     }
     
     var body: some View {
@@ -34,9 +37,11 @@ struct FoodGoTextField: View {
             .multilineTextAlignment(.center)
             .font(.custom("Questrial-Regular", size: fontSize))
             .foregroundStyle(foregroundColor)
+            .keyboardType(inputType)
     }
 }
 
 #Preview {
     FoodGoTextField(placeHolder: "placeholder", binding: .constant("my text"), hideKeyboard: .init())
 }
+
