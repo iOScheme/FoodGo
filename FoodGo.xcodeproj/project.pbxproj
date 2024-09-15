@@ -26,6 +26,7 @@
 		CB96D47D2C8F7ED600D18A2A /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96D47C2C8F7ED600D18A2A /* ProfileEditViewModel.swift */; };
 		CB9750F02C6D2C7700576A56 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */; };
 		CBB15D372C6D25E80099A1EE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */; };
+		CBD734662C94C39A00C6E18D /* HealthkitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD734652C94C39A00C6E18D /* HealthkitManager.swift */; };
 		CBDFE48A2C8BA2EA00683718 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDFE4892C8BA2EA00683718 /* UserPreferences.swift */; };
 		CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */; };
 		CBE235222C6CF6E80018C2F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE235212C6CF6E80018C2F4 /* HomeView.swift */; };
@@ -74,6 +75,8 @@
 		CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		CBB15D382C6D265B0099A1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBD734632C94C33700C6E18D /* FoodGo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodGo.entitlements; sourceTree = "<group>"; };
+		CBD734652C94C39A00C6E18D /* HealthkitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitManager.swift; sourceTree = "<group>"; };
 		CBDFE4892C8BA2EA00683718 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		CBE2351C2C6CF6E80018C2F4 /* FoodGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoApp.swift; sourceTree = "<group>"; };
@@ -273,6 +276,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		CBD734642C94C39100C6E18D /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				CBD734652C94C39A00C6E18D /* HealthkitManager.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
 		CBDFE4882C8BA2D100683718 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +315,8 @@
 		CBE2351E2C6CF6E80018C2F4 /* FoodGo */ = {
 			isa = PBXGroup;
 			children = (
+				CBD734642C94C39100C6E18D /* HealthKit */,
+				CBD734632C94C33700C6E18D /* FoodGo.entitlements */,
 				CBDFE4882C8BA2D100683718 /* Persistance */,
 				CB49B1592C6DF535001ABC8D /* Modules */,
 				CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */,
@@ -480,6 +493,7 @@
 				CB96D47A2C8F7D8200D18A2A /* ProfileRead.swift in Sources */,
 				CB0EBA842C7B6A8200B14365 /* DateFormatter+Helpers.swift in Sources */,
 				CB96D4782C8F7D6F00D18A2A /* ProfileEdit.swift in Sources */,
+				CBD734662C94C39A00C6E18D /* HealthkitManager.swift in Sources */,
 				CB0EBA7B2C7B69C300B14365 /* CalendarScrollView.swift in Sources */,
 				CB80E6F02C87964500BE8DBB /* FoodGoTabBar.swift in Sources */,
 				CB49B15C2C6DF54C001ABC8D /* CalendarViewModel.swift in Sources */,
@@ -653,6 +667,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FoodGo/FoodGo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGo/Preview Content\"";
@@ -684,6 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FoodGo/FoodGo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGo/Preview Content\"";

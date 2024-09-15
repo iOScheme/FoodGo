@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     private var viewModel = CalendarViewModel()
     @State var toggledMonth: [DayDateDomainModel] = []
+    private let healthStore = HealthkitManager.shared
     
     var body: some View {
         VStack {
@@ -55,6 +56,11 @@ struct HomeView: View {
            
         }.onAppear {
             toggledMonth = viewModel.getDaysInMonth()
+            healthStore.fetchStepCount()
+            healthStore.fetchCaloriesBurned()
+            print(healthStore.steps)
+            print(healthStore.totalCalories)
+            
         }
     }
 }

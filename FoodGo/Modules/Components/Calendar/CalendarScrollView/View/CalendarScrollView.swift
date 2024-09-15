@@ -42,7 +42,7 @@ struct CalendarScrollView: View {
                                     proxy.scrollTo(dayData.id, anchor: .center)
                                 }
                             }.onAppear {
-                                print(dayData.monthName)
+//                                print(dayData.monthName)
                             }
                         }
                         Spacer(minLength: 24)
