@@ -56,8 +56,14 @@ struct HomeView: View {
            
         }.onAppear {
             toggledMonth = viewModel.getDaysInMonth()
-            healthStore.fetchStepCount()
-            healthStore.fetchCaloriesBurned()
+            Task {
+                do {
+                    try  await healthStore.fetchCaloriesBurned()
+                } catch {
+                    print(error)
+                }
+                   
+            }
             print(healthStore.steps)
             print(healthStore.totalCalories)
             
