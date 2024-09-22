@@ -54,7 +54,7 @@ struct HomeView: View {
             }.padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16))
             Spacer()
            
-        }.onAppear {
+        }.background(.foodGoDefaultBackground).onAppear {
             toggledMonth = viewModel.getDaysInMonth()
             Task {
                 do {
@@ -64,6 +64,7 @@ struct HomeView: View {
                 }
                    
             }
+            healthStore.basalEnergy()
             print(healthStore.steps)
             print(healthStore.totalCalories)
             

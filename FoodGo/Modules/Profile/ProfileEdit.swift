@@ -117,5 +117,5 @@ struct ProfileEdit: View {
 }
 
 #Preview {
-    //    ProfileEdit(kg: "kg", height: "height", pickerSelection: "", username: "username")
+    ProfileEdit(kg: .constant(""), height: .constant(""), pickerSelection: .constant(UserPlan(rawValue: "") ?? .gainWeight), username: .constant(""))
 }

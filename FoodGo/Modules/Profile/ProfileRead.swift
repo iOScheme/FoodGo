@@ -74,7 +74,7 @@ struct ProfileRead: View {
                 }
                 Spacer()
             }
-        }
+        }.background(.foodGoDefaultBackground)
     }
 }
 
