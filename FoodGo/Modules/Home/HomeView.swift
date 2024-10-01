@@ -49,9 +49,15 @@ struct HomeView: View {
                 )
            
             HStack {
-                FoodGoTextView("Statistics", 25)
+                FoodGoTextView("Meal Sugestions", 25)
                 Spacer()
             }.padding(EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 16))
+            ScrollView(.horizontal) {
+                HStack(spacing: 20){
+                    MealSuggestionCard()
+                    MealSuggestionCard()
+                }
+            }.padding()
             Spacer()
            
         }.background(.foodGoDefaultBackground).onAppear {

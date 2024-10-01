@@ -26,6 +26,7 @@
 		CB96D47D2C8F7ED600D18A2A /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB96D47C2C8F7ED600D18A2A /* ProfileEditViewModel.swift */; };
 		CB9750F02C6D2C7700576A56 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */; };
 		CBB15D372C6D25E80099A1EE /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */; };
+		CBBEE51B2CA1F48E00B23DA8 /* MealSuggestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBEE51A2CA1F48E00B23DA8 /* MealSuggestionCard.swift */; };
 		CBD734662C94C39A00C6E18D /* HealthkitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD734652C94C39A00C6E18D /* HealthkitManager.swift */; };
 		CBDFE48A2C8BA2EA00683718 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDFE4892C8BA2EA00683718 /* UserPreferences.swift */; };
 		CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */; };
@@ -75,6 +76,7 @@
 		CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		CBB15D382C6D265B0099A1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBBEE51A2CA1F48E00B23DA8 /* MealSuggestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSuggestionCard.swift; sourceTree = "<group>"; };
 		CBD734632C94C33700C6E18D /* FoodGo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodGo.entitlements; sourceTree = "<group>"; };
 		CBD734652C94C39A00C6E18D /* HealthkitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitManager.swift; sourceTree = "<group>"; };
 		CBDFE4892C8BA2EA00683718 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		CBE235362C6CF6E90018C2F4 /* FoodGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2353A2C6CF6E90018C2F4 /* FoodGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoUITests.swift; sourceTree = "<group>"; };
 		CBE2353C2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBF96C742CAC91CA00C0DED2 /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = FoodGo/Modules/NetworkLayer; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,10 +198,12 @@
 		CB49B1592C6DF535001ABC8D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CBBEE5192CA1F47B00B23DA8 /* MealSuggestion */,
 				CB80E6F12C8796CB00BE8DBB /* Profile */,
 				CB80E6EE2C87963700BE8DBB /* Tabar */,
 				CB83A6962C7632B600CDC55A /* Components */,
 				CB49B15A2C6DF53C001ABC8D /* Home */,
+				CBF96C742CAC91CA00C0DED2 /* NetworkLayer */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -274,6 +279,14 @@
 				CBB15D362C6D25E80099A1EE /* Pacifico-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CBBEE5192CA1F47B00B23DA8 /* MealSuggestion */ = {
+			isa = PBXGroup;
+			children = (
+				CBBEE51A2CA1F48E00B23DA8 /* MealSuggestionCard.swift */,
+			);
+			path = MealSuggestion;
 			sourceTree = "<group>";
 		};
 		CBD734642C94C39100C6E18D /* HealthKit */ = {
@@ -442,6 +455,8 @@
 				Base,
 			);
 			mainGroup = CBE235132C6CF6E80018C2F4;
+			packageReferences = (
+			);
 			productRefGroup = CBE2351D2C6CF6E80018C2F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -500,6 +515,7 @@
 				CB0EBA8A2C7BAE6E00B14365 /* CalendarHeader.swift in Sources */,
 				CB80E6F32C8796D600BE8DBB /* FoodGoProfile.swift in Sources */,
 				CB0EBA8C2C7BAFAB00B14365 /* FoodGoImageView.swift in Sources */,
+				CBBEE51B2CA1F48E00B23DA8 /* MealSuggestionCard.swift in Sources */,
 				CB0EBA872C7B6F2A00B14365 /* UserCardHome.swift in Sources */,
 				CB83A69A2C7632CC00CDC55A /* CalendarView.swift in Sources */,
 				CB4E74812C88D870002E7105 /* UserCardProfile.swift in Sources */,

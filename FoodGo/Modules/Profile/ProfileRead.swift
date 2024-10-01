@@ -25,7 +25,8 @@ struct ProfileRead: View {
                     circleHeight: 144,
                     mainText: userPreferences?.name ?? "Username",
                     mainTextSize: 40,
-                    username: .constant(userPreferences?.name ?? "")
+                    username: .constant(userPreferences?.name ?? ""),
+                    readOnly: true
                 ).padding(
                     EdgeInsets(
                         top: 48,
