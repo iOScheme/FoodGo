@@ -10,7 +10,7 @@ import Foundation
 public final actor NetworkLayerConfig {
     private static let defaultPath = "www.google.com"
     public static var basePath: String {
-        completion?() ?? ""
+        completion?() ?? defaultPath
     }
     
     private static var completion: (() -> String)?

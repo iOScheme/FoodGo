@@ -8,11 +8,11 @@
 import Foundation
 
 public protocol NetworkLayerEndpoint {
-    var queryItems: [URLQueryItem] { get set}
-    var path: String { get set}
-    var method: URLRequestMethod { get set }
-    var asURLRequest: URLRequest? { get set }
-    var basePath: String { get set }
+    var queryItems: [URLQueryItem] { get}
+    var path: String { get }
+    var method: URLRequestMethod { get }
+    var asURLRequest: URLRequest? { get }
+    var basePath: String { get }
 }
 
 extension NetworkLayerEndpoint {
@@ -25,8 +25,12 @@ extension NetworkLayerEndpoint {
         urlComponent.host = basePath
         urlComponent.path = path
         urlComponent.queryItems = queryItems
+        urlComponent.scheme = "https"
+       
         guard let url = urlComponent.url else { return nil }
-        return URLRequest(url: url)
+        var  request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        return request
     }
 }
 
