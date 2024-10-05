@@ -35,6 +35,7 @@ final class NetworkLayerTests: XCTestCase {
 }
 
 class MockEndpoint: NetworkLayerEndpoint {
+    
     var mockURLQueryItems: [URLQueryItem] = []
     var mockRequestMethodValue: URLRequestMethod = .get
     

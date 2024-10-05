@@ -13,6 +13,7 @@ public protocol NetworkLayerEndpoint {
     var method: URLRequestMethod { get }
     var asURLRequest: URLRequest? { get }
     var basePath: String { get }
+    var scheme: String { get }
 }
 
 extension NetworkLayerEndpoint {
@@ -20,12 +21,16 @@ extension NetworkLayerEndpoint {
         NetworkLayerConfig.basePath
     }
     
+    var scheme: String {
+        "https"
+    }
+    
     var asURLRequest: URLRequest? {
         var urlComponent = URLComponents()
         urlComponent.host = basePath
         urlComponent.path = path
         urlComponent.queryItems = queryItems
-        urlComponent.scheme = "https"
+        urlComponent.scheme = scheme
        
         guard let url = urlComponent.url else { return nil }
         var  request = URLRequest(url: url)
