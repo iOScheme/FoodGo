@@ -12,13 +12,13 @@ public protocol NetworkLayerEndpoint {
     var path: String { get }
     var method: URLRequestMethod { get }
     var asURLRequest: URLRequest? { get }
-    var basePath: String { get }
+    var host: String { get }
     var scheme: String { get }
 }
 
 extension NetworkLayerEndpoint {
-    var basePath: String {
-        NetworkLayerConfig.basePath
+    var host: String {
+        NetworkLayerConfig.host
     }
     
     var scheme: String {
@@ -27,7 +27,7 @@ extension NetworkLayerEndpoint {
     
     var asURLRequest: URLRequest? {
         var urlComponent = URLComponents()
-        urlComponent.host = basePath
+        urlComponent.host = host
         urlComponent.path = path
         urlComponent.queryItems = queryItems
         urlComponent.scheme = scheme

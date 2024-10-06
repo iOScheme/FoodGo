@@ -9,7 +9,7 @@ import Foundation
 
 public final class NetworkLayerConfig {
     private static let defaultPath = "www.google.com"
-    public static var basePath: String {
+    public static var host: String {
         completion?() ?? defaultPath
     }
     
@@ -22,9 +22,9 @@ public final class NetworkLayerConfig {
     nonisolated(unsafe) private static var completion: (() -> String)?
 
     
-    static func config(basePath: String) {
+    static func config(host: String) {
         completion = {
-            basePath
+            host
         }
     }
 }

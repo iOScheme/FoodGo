@@ -32,6 +32,16 @@ final class NetworkLayerTests: XCTestCase {
         // Then
         XCTAssertEqual(urlRequest.httpMethod, mockEndpoint.method.rawValue)
     }
+    
+    func test_config() throws {
+        let host = "www.testBasePath.com"
+        NetworkLayerConfig.config(host: host)
+        let endpoint = MockEndpoint()
+        let url = try XCTUnwrap(endpoint.asURLRequest?.url)
+        let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        let queryItems = components?.host
+        XCTAssertEqual(queryItems, host)
+    }
 }
 
 class MockEndpoint: NetworkLayerEndpoint {
