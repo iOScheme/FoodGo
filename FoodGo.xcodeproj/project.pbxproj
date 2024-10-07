@@ -200,12 +200,12 @@
 		CB49B1592C6DF535001ABC8D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CBBEE5192CA1F47B00B23DA8 /* MealSuggestion */,
-				CB80E6F12C8796CB00BE8DBB /* Profile */,
-				CB80E6EE2C87963700BE8DBB /* Tabar */,
 				CB83A6962C7632B600CDC55A /* Components */,
 				CB49B15A2C6DF53C001ABC8D /* Home */,
+				CBBEE5192CA1F47B00B23DA8 /* MealSuggestion */,
 				CBF96C742CAC91CA00C0DED2 /* NetworkLayer */,
+				CB80E6F12C8796CB00BE8DBB /* Profile */,
+				CB80E6EE2C87963700BE8DBB /* Tabar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
