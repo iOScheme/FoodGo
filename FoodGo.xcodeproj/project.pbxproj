@@ -270,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB15D352C6D25D60099A1EE /* Fonts */,
+				CBE235232C6CF6E90018C2F4 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -330,17 +331,16 @@
 		CBE2351E2C6CF6E80018C2F4 /* FoodGo */ = {
 			isa = PBXGroup;
 			children = (
-				CBD734642C94C39100C6E18D /* HealthKit */,
-				CBD734632C94C33700C6E18D /* FoodGo.entitlements */,
-				CBDFE4882C8BA2D100683718 /* Persistance */,
-				CB49B1592C6DF535001ABC8D /* Modules */,
-				CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */,
-				CBB15D382C6D265B0099A1EE /* Info.plist */,
-				CBB15D342C6D25CB0099A1EE /* Resources */,
-				CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */,
-				CBE235232C6CF6E90018C2F4 /* Assets.xcassets */,
-				CBE235252C6CF6E90018C2F4 /* Preview Content */,
 				CB22F0182CB3D48100773865 /* DependencyManager.swift */,
+				CBD734632C94C33700C6E18D /* FoodGo.entitlements */,
+				CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */,
+				CBD734642C94C39100C6E18D /* HealthKit */,
+				CBB15D382C6D265B0099A1EE /* Info.plist */,
+				CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */,
+				CB49B1592C6DF535001ABC8D /* Modules */,
+				CBDFE4882C8BA2D100683718 /* Persistance */,
+				CBE235252C6CF6E90018C2F4 /* Preview Content */,
+				CBB15D342C6D25CB0099A1EE /* Resources */,
 			);
 			path = FoodGo;
 			sourceTree = "<group>";
