@@ -15,7 +15,7 @@ struct ProfileEdit: View {
     @Binding private var username: String
     @State private var isPresented: Bool
     @FocusState private var textFieldisFocused: Bool
-    private let model: ProfileEditViewModel = ProfileEditViewModel()
+    @StateObject private var model = ProfileEditViewModel()
     private let userPreferences: UserPreferences?
     
     
@@ -24,8 +24,9 @@ struct ProfileEdit: View {
         self._height = height
         self._pickerSelection = pickerSelection
         self._username = username
-        self.userPreferences = model.retrieve(type: UserPreferences.self)
         self.isPresented = .init(false)
+        userPreferences = nil
+//        self.userPreferences = model.retrieve(type: UserPreferences.self)
     }
     
     var body: some View {

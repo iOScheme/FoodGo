@@ -13,7 +13,8 @@ struct ProfileRead: View {
     
     
     init() {
-        self.userPreferences = model.retrieve(type: UserPreferences.self)
+        userPreferences = nil
+//        self.userPreferences = model.retrieve(type: UserPreferences.self)
     }
     
     var body: some View {

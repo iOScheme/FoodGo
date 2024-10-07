@@ -13,6 +13,7 @@
 		CB0EBA872C7B6F2A00B14365 /* UserCardHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0EBA862C7B6F2A00B14365 /* UserCardHome.swift */; };
 		CB0EBA8A2C7BAE6E00B14365 /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0EBA892C7BAE6E00B14365 /* CalendarHeader.swift */; };
 		CB0EBA8C2C7BAFAB00B14365 /* FoodGoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0EBA8B2C7BAFAB00B14365 /* FoodGoImageView.swift */; };
+		CB22F0192CB3D48100773865 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB22F0182CB3D48100773865 /* DependencyManager.swift */; };
 		CB49B15C2C6DF54C001ABC8D /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB49B15B2C6DF54C001ABC8D /* CalendarViewModel.swift */; };
 		CB4E74812C88D870002E7105 /* UserCardProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E74802C88D870002E7105 /* UserCardProfile.swift */; };
 		CB4E74832C88DB1B002E7105 /* FoodGoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4E74822C88DB1B002E7105 /* FoodGoTextField.swift */; };
@@ -62,6 +63,7 @@
 		CB0EBA862C7B6F2A00B14365 /* UserCardHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardHome.swift; sourceTree = "<group>"; };
 		CB0EBA892C7BAE6E00B14365 /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		CB0EBA8B2C7BAFAB00B14365 /* FoodGoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoImageView.swift; sourceTree = "<group>"; };
+		CB22F0182CB3D48100773865 /* DependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		CB49B15B2C6DF54C001ABC8D /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		CB4E74802C88D870002E7105 /* UserCardProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardProfile.swift; sourceTree = "<group>"; };
 		CB4E74822C88DB1B002E7105 /* FoodGoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoTextField.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */,
 				CBE235232C6CF6E90018C2F4 /* Assets.xcassets */,
 				CBE235252C6CF6E90018C2F4 /* Preview Content */,
+				CB22F0182CB3D48100773865 /* DependencyManager.swift */,
 			);
 			path = FoodGo;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				CB0EBA7B2C7B69C300B14365 /* CalendarScrollView.swift in Sources */,
 				CB80E6F02C87964500BE8DBB /* FoodGoTabBar.swift in Sources */,
 				CB49B15C2C6DF54C001ABC8D /* CalendarViewModel.swift in Sources */,
+				CB22F0192CB3D48100773865 /* DependencyManager.swift in Sources */,
 				CB0EBA8A2C7BAE6E00B14365 /* CalendarHeader.swift in Sources */,
 				CB80E6F32C8796D600BE8DBB /* FoodGoProfile.swift in Sources */,
 				CB0EBA8C2C7BAFAB00B14365 /* FoodGoImageView.swift in Sources */,

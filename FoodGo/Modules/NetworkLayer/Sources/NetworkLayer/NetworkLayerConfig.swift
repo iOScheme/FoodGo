@@ -21,7 +21,6 @@ public final class NetworkLayerConfig {
     ///  Ensure proper application structure so that `completion` is initialized before use.
     nonisolated(unsafe) private static var completion: (() -> String)?
 
-    
     static func config(host: String) {
         completion = {
             host
