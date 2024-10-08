@@ -11,10 +11,10 @@ public protocol NetworkLayerCoreProtocol {
     func execute(request: URLRequest) async throws -> (Data, URLResponse)
 }
 
-final class NetworkLayerCore: NetworkLayerCoreProtocol {
+public final class NetworkLayerCore: NetworkLayerCoreProtocol {
     private let session: URLSession
     
-    init(session: URLSession) {
+    public init(session: URLSession) {
         self.session = session
     }
     

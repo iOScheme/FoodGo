@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,8 @@
 		CBE235312C6CF6E90018C2F4 /* FoodGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE235302C6CF6E90018C2F4 /* FoodGoTests.swift */; };
 		CBE2353B2C6CF6E90018C2F4 /* FoodGoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2353A2C6CF6E90018C2F4 /* FoodGoUITests.swift */; };
 		CBE2353D2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2353C2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift */; };
+		CBF8474D2CB41AA300C2ECBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF8474C2CB41AA300C2ECBD /* AppDelegate.swift */; };
+		CBF847502CB41BEA00C2ECBD /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = CBF8474F2CB41BEA00C2ECBD /* NetworkLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,7 @@
 		CBE235362C6CF6E90018C2F4 /* FoodGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE2353A2C6CF6E90018C2F4 /* FoodGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoUITests.swift; sourceTree = "<group>"; };
 		CBE2353C2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBF8474C2CB41AA300C2ECBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBF96C742CAC91CA00C0DED2 /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = FoodGo/Modules/NetworkLayer; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -100,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF847502CB41BEA00C2ECBD /* NetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +335,7 @@
 		CBE2351E2C6CF6E80018C2F4 /* FoodGo */ = {
 			isa = PBXGroup;
 			children = (
+				CBF8474C2CB41AA300C2ECBD /* AppDelegate.swift */,
 				CB22F0182CB3D48100773865 /* DependencyManager.swift */,
 				CBD734632C94C33700C6E18D /* FoodGo.entitlements */,
 				CBE2351F2C6CF6E80018C2F4 /* FoodGoApp.swift */,
@@ -338,6 +343,7 @@
 				CBB15D382C6D265B0099A1EE /* Info.plist */,
 				CB9750EF2C6D2C7700576A56 /* Launch Screen.storyboard */,
 				CB49B1592C6DF535001ABC8D /* Modules */,
+				CBF8474B2CB41A2800C2ECBD /* Network */,
 				CBDFE4882C8BA2D100683718 /* Persistance */,
 				CBE235252C6CF6E90018C2F4 /* Preview Content */,
 				CBB15D342C6D25CB0099A1EE /* Resources */,
@@ -368,6 +374,13 @@
 				CBE2353C2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift */,
 			);
 			path = FoodGoUITests;
+			sourceTree = "<group>";
+		};
+		CBF8474B2CB41A2800C2ECBD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,6 +472,7 @@
 			);
 			mainGroup = CBE235132C6CF6E80018C2F4;
 			packageReferences = (
+				CBF8474E2CB41BEA00C2ECBD /* XCLocalSwiftPackageReference "FoodGo/Modules/NetworkLayer" */,
 			);
 			productRefGroup = CBE2351D2C6CF6E80018C2F4 /* Products */;
 			projectDirPath = "";
@@ -527,6 +541,7 @@
 				CBE235202C6CF6E80018C2F4 /* FoodGoApp.swift in Sources */,
 				CB96D47D2C8F7ED600D18A2A /* ProfileEditViewModel.swift in Sources */,
 				CB83A69E2C7634FC00CDC55A /* FoodGoTextView.swift in Sources */,
+				CBF8474D2CB41AA300C2ECBD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,6 +879,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		CBF8474E2CB41BEA00C2ECBD /* XCLocalSwiftPackageReference "FoodGo/Modules/NetworkLayer" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = FoodGo/Modules/NetworkLayer;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CBF8474F2CB41BEA00C2ECBD /* NetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkLayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CBE235142C6CF6E80018C2F4 /* Project object */;
 }

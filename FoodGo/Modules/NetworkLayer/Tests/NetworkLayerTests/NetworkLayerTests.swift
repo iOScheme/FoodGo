@@ -54,7 +54,7 @@ class MockEndpoint: NetworkLayerEndpoint {
     }
     
     var path: String {
-       "/food/barcode/find-by-id/"
+       "/rest/food/barcode/find-by-id/"
     }
     
     var method: URLRequestMethod {
