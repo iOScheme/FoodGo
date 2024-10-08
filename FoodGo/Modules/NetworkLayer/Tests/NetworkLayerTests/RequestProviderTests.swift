@@ -11,7 +11,7 @@ import NLCore
 
 final class RequestProviderTests: XCTestCase {
     
-    func test_requestProvider() async throws {
+    func test_requestProviderSucess() async throws {
         let response =
                       """
                       
@@ -39,6 +39,72 @@ final class RequestProviderTests: XCTestCase {
         
         let result:TestPayload =  try await sut.execute(endpoint: endpoint)
         XCTAssertNotNil(result)
+    }
+    
+    func test_requestProviderDecodingFailure() async throws {
+        let response =
+                      """
+                      
+                          {
+                              "firstNamew": "Lee",
+                              "lastName": "Burrows"
+                          }
+                      """
+        let data = response.data(using: .utf8)!
+        let sut = makeSut()
+        let endpoint = MockEndpoint()
+        let url = try XCTUnwrap(endpoint.asURLRequest?.url)
+        MockURLProtocol.error = nil
+        MockURLProtocol.requestHandler = {
+            request in
+            let response = HTTPURLResponse(
+                url:url ,
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: ["Content-Type": "application/json"]
+            )!
+            return (response, data)
+        }
+        
+        do {
+            let _:TestPayload =  try await sut.execute(endpoint: endpoint)
+            XCTFail()
+        } catch {
+            XCTAssertNotNil(error as? DecodingError)
+        }
+    }
+    
+    func test_requestProviderStatusCodeFailure() async throws {
+        let response =
+                      """
+                      
+                          {
+                              "firstName": "Lee",
+                              "lastName": "Burrows"
+                          }
+                      """
+        let data = response.data(using: .utf8)!
+        let sut = makeSut()
+        let endpoint = MockEndpoint()
+        let url = try XCTUnwrap(endpoint.asURLRequest?.url)
+        MockURLProtocol.error = nil
+        MockURLProtocol.requestHandler = {
+            request in
+            let response = HTTPURLResponse(
+                url:url ,
+                statusCode: 400,
+                httpVersion: nil,
+                headerFields: ["Content-Type": "application/json"]
+            )!
+            return (response, data)
+        }
+        
+        do {
+            let _:TestPayload =  try await sut.execute(endpoint: endpoint)
+            XCTFail()
+        } catch {
+            XCTAssertNotNil(error)
+        }
     }
     
     private func makeSut() -> RequestProviderProtocol {
