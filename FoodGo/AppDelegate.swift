@@ -19,7 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 extension AppDelegate {
     func registerRequestProvider() async throws {
         try await DependencyManager.shared.register(RequestProvider.self) {
-            NetworkLayerConfig.config(host: "platform.fatsecret.com/rest")
+            NetworkLayerConfig.config(host: "platform.fatsecret.com")
             let session = URLSession(configuration: .default)
             let nlCore = NetworkLayerCore(session: session)
             let networkLayer = NetworkLayer(networkLayerCore: nlCore)

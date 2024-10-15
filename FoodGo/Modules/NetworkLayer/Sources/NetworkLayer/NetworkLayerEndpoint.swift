@@ -14,9 +14,10 @@ public protocol NetworkLayerEndpoint {
     var asURLRequest: URLRequest? { get }
     var host: String { get }
     var scheme: String { get }
+    var apiVersion: String? { get }
 }
 
-extension NetworkLayerEndpoint {
+public extension NetworkLayerEndpoint {
     var host: String {
         NetworkLayerConfig.host
     }
@@ -26,9 +27,13 @@ extension NetworkLayerEndpoint {
     }
     
     var asURLRequest: URLRequest? {
+        var versionedPath: String?
         var urlComponent = URLComponents()
         urlComponent.host = host
-        urlComponent.path = path
+        if let apiVersion {
+            versionedPath = "\(path)\(apiVersion)"
+        }
+        urlComponent.path = versionedPath ?? path
         urlComponent.queryItems = queryItems
         urlComponent.scheme = scheme
        

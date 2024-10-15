@@ -39,6 +39,7 @@
 		CBE2353D2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2353C2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift */; };
 		CBF8474D2CB41AA300C2ECBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF8474C2CB41AA300C2ECBD /* AppDelegate.swift */; };
 		CBF847502CB41BEA00C2ECBD /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = CBF8474F2CB41BEA00C2ECBD /* NetworkLayer */; };
+		CBF847532CBD6D3D00C2ECBD /* GetFoodRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF847522CBD6D3D00C2ECBD /* GetFoodRemoteDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		CBE2353A2C6CF6E90018C2F4 /* FoodGoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoUITests.swift; sourceTree = "<group>"; };
 		CBE2353C2C6CF6E90018C2F4 /* FoodGoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CBF8474C2CB41AA300C2ECBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CBF847522CBD6D3D00C2ECBD /* GetFoodRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodRemoteDataSource.swift; sourceTree = "<group>"; };
 		CBF96C742CAC91CA00C0DED2 /* NetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkLayer; path = FoodGo/Modules/NetworkLayer; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 		CB49B1592C6DF535001ABC8D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CBF847512CBD6D2300C2ECBD /* GetFoodRepository */,
 				CB83A6962C7632B600CDC55A /* Components */,
 				CB49B15A2C6DF53C001ABC8D /* Home */,
 				CBBEE5192CA1F47B00B23DA8 /* MealSuggestion */,
@@ -383,6 +386,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		CBF847512CBD6D2300C2ECBD /* GetFoodRepository */ = {
+			isa = PBXGroup;
+			children = (
+				CBF847522CBD6D3D00C2ECBD /* GetFoodRemoteDataSource.swift */,
+			);
+			path = GetFoodRepository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -542,6 +553,7 @@
 				CB96D47D2C8F7ED600D18A2A /* ProfileEditViewModel.swift in Sources */,
 				CB83A69E2C7634FC00CDC55A /* FoodGoTextView.swift in Sources */,
 				CBF8474D2CB41AA300C2ECBD /* AppDelegate.swift in Sources */,
+				CBF847532CBD6D3D00C2ECBD /* GetFoodRemoteDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
