@@ -15,11 +15,10 @@ public final class GetFoodRemoteDataSource {
         self.remoteProvider = remoteProvider
     }
     
-    public func getFoods<T: Decodable>(endpoint: GetFoodEndpoint) async throws -> T {
-       try await remoteProvider.execute(endpoint: endpoint)
+    public func getFoods(endpoint: GetFoodEndpoint) async throws -> PayloadOne {
+        try await remoteProvider.execute(endpoint: endpoint, dto: PayloadOne.self)
     }
 }
-
 
 public struct GetFoodEndpoint: NetworkLayerEndpoint {
     public var apiVersion: String? {
@@ -44,3 +43,5 @@ public struct GetFoodEndpoint: NetworkLayerEndpoint {
         self.searchExpression = searchExpression
     }
 }
+
+public struct PayloadOne: Decodable {}

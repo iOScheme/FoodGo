@@ -37,7 +37,7 @@ final class RequestProviderTests: XCTestCase {
         }
         
         
-        let result:TestPayload =  try await sut.execute(endpoint: endpoint)
+        let result:TestPayload =  try await sut.execute(endpoint: endpoint, dto: TestPayload.self)
         XCTAssertNotNil(result)
     }
     
@@ -67,7 +67,7 @@ final class RequestProviderTests: XCTestCase {
         }
         
         do {
-            let _:TestPayload =  try await sut.execute(endpoint: endpoint)
+            let _:TestPayload =  try await sut.execute(endpoint: endpoint, dto: TestPayload.self)
             XCTFail()
         } catch {
             XCTAssertNotNil(error as? DecodingError)
@@ -100,7 +100,7 @@ final class RequestProviderTests: XCTestCase {
         }
         
         do {
-            let _:TestPayload =  try await sut.execute(endpoint: endpoint)
+            let _:TestPayload =  try await sut.execute(endpoint: endpoint, dto: TestPayload.self)
             XCTFail()
         } catch {
             XCTAssertNotNil(error)
