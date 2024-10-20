@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class CalendarViewModel {
+class CalendarViewModel: ObservableObject {
     private let calendar = Calendar.current
     private let currentDate = Date()
     private lazy var dateFormatter: DateFormatter  = {
@@ -32,7 +32,10 @@ class CalendarViewModel {
         updateYear(for: currentDate)
     }
     
-    var monthName: String = ""
+    @Published var monthName: String = ""
+    @Published var currentYear = 0
+    @Published var currentMonthDays: [DayDateDomainModel] = []
+    
     lazy var currentDay: Int = {
         calendar.component(.day, from: currentDate)
     }()
@@ -42,11 +45,8 @@ class CalendarViewModel {
     
     private var nextDate: Date? = nil
     private var previousMonthDate: Date? = nil
-    var currentYear = 0
-    
-    
-    
-    func goToPreviousMonth() -> [DayDateDomainModel] {
+   
+    func goToPreviousMonth() {
         let referenceDate = (nextDate ?? previousMonthDate)
         var dateComponents = DateComponents()
         dateComponents.month = -1 // Move back one month
@@ -57,10 +57,10 @@ class CalendarViewModel {
         updateYear(for: previousDate)
         nextDate = previousMonthDate
         self.previousMonthDate = previousDate
-        return getDaysInMonth(date: previousMonthDate)
+        getDaysInMonth(date: previousMonthDate)
     }
     
-    func getNextMonth() ->  [DayDateDomainModel] {
+    func getNextMonth() {
         let referenceDate = (nextDate ?? previousMonthDate)
         var dateComponents = DateComponents()
         dateComponents.month = +1 // Move forward one month
@@ -70,7 +70,7 @@ class CalendarViewModel {
         let nextMonth = calendar.date(byAdding: dateComponents, to: referenceDate ?? currentDate)
         updateYear(for: nextMonth)
         self.nextDate = nextMonth
-        return getDaysInMonth(date: nextMonth)
+        getDaysInMonth(date: nextMonth)
     }
     
     private func updateYear(for date: Date?) {
@@ -78,7 +78,7 @@ class CalendarViewModel {
         currentYear = calendar.component(.year, from: date)
     }
    
-    func getDaysInMonth(date: Date? = nil) -> [DayDateDomainModel] {
+    func getDaysInMonth(date: Date? = nil) {
         var components = DateComponents()
         components.year = calendar.component(.year, from: date ?? Date())
         components.month = getMonthNumber(from: date ?? currentDate)
@@ -87,15 +87,13 @@ class CalendarViewModel {
         let dateComponents = DateComponents(year: components.year, month: components.month, day: components.day)
         
         // Get the current day of the month
-        guard let startDate = calendar.date(from: dateComponents) else { return [] }
+        guard let startDate = calendar.date(from: dateComponents) else { return  }
         
         // Determine the range of days in the month
-         guard let range = calendar.range(of: .day, in: .month, for: startDate) else { return [] }
-        
-        
+         guard let range = calendar.range(of: .day, in: .month, for: startDate) else { return  }
         
         // Generate all dates within the range
-        return range.compactMap { day -> Date? in
+        currentMonthDays = range.compactMap { day -> Date? in
             let components = DateComponents(year: components.year, month: components.month, day: day)
             return calendar.date(from: components)
         }.map({

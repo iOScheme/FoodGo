@@ -11,6 +11,7 @@ struct HomeView: View {
     private var viewModel = CalendarViewModel()
     @State var toggledMonth: [DayDateDomainModel] = []
     private let healthStore = HealthkitManager.shared
+    @StateObject private var calendarViewModel = CalendarViewModel()
     
     var body: some View {
         VStack {
@@ -29,16 +30,8 @@ struct HomeView: View {
                     trailing: 16
                 )
             )
-            CalendarHeader(
-                monthName: viewModel.monthName,
-                year: viewModel.currentYear,
-                leftArrowAction: {
-                    toggledMonth = viewModel.goToPreviousMonth()
-                },
-                rightArrowAction: {
-                toggledMonth = viewModel.getNextMonth()
-            }).padding()
-            CalendarScrollView(days: toggledMonth)
+            CalendarHeader(viewModel: calendarViewModel).padding()
+            CalendarScrollView(viewModel: calendarViewModel)
                 .padding(
                     EdgeInsets(
                         top: 0,
@@ -61,7 +54,6 @@ struct HomeView: View {
             Spacer()
            
         }.background(.foodGoDefaultBackground).onAppear {
-            toggledMonth = viewModel.getDaysInMonth()
             Task {
                 do {
                     try  await healthStore.fetchCaloriesBurned()

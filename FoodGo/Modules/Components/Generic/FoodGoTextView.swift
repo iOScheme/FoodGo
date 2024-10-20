@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct FoodGoTextView: View {
-    let fontSize: CGFloat
-    let text: String
-    let foregroundColor: Color
+    private let fontSize: CGFloat
+    private let text: String
+    private let foregroundColor: Color
     
     init(_ text: String, _ fontSize: CGFloat = 16, foregroundColor: Color = .black) {
         self.text = text

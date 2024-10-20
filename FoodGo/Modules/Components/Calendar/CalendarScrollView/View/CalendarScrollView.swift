@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct CalendarScrollView: View {
-    var days: [DayDateDomainModel] = []
-    @State var selectedDay: DayDateDomainModel? = nil
+    @State private var selectedDay: DayDateDomainModel? = nil
+    @StateObject private var viewModel: CalendarViewModel
     
-    init(days: [DayDateDomainModel], selectedDay: DayDateDomainModel? = nil) {
-        self.days = days
-        self.selectedDay = selectedDay
+    init(viewModel: CalendarViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
    
@@ -21,7 +20,7 @@ struct CalendarScrollView: View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(days, id: \.id) { dayData in
+                    ForEach(viewModel.currentMonthDays, id: \.id) { dayData in
                         if dayData.currentDay {
                                 CalendarView(
                                     dayName: dayData.dayName,
@@ -46,7 +45,7 @@ struct CalendarScrollView: View {
                             }
                         }
                         Spacer(minLength: 24)
-                    }.onChange(of: days) { _, newValue in
+                    }.onChange(of: viewModel.currentMonthDays) { _, newValue in
                         withAnimation {
                             /// needs the new value because each cell has a new identity so its need this new identity to know
                             /// at what new cell it has to scroll

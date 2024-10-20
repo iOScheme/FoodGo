@@ -3,4 +3,68 @@
    uuid = "8D98F7E0-2AFE-4BDE-B062-E51DAE834859"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE9AF179-51D8-41A4-AE2B-4A2EF9837CC5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodGo/Modules/Components/Helpers/Date/DateFormatter+Helpers.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getMonthName(from:nameStyle:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62F5A7B4-8019-433D-85CF-2832AAF9CA88"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodGo/Modules/Components/Calendar/CalendarScrollView/ViewModel/CalendarViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "getDaysInMonth(date:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "62F5A7B4-8019-433D-85CF-2832AAF9CA88 - 44cda83af0636652"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodGo.CalendarViewModel.getDaysInMonth(date: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "FoodGo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex.personal/Documents/developer/FoodGo/FoodGo/FoodGo/Modules/Components/Calendar/CalendarScrollView/ViewModel/CalendarViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96">
+               </Location>
+               <Location
+                  uuid = "62F5A7B4-8019-433D-85CF-2832AAF9CA88 - bbb6c98d14971ebf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; Swift.Optional&lt;Foundation.Date&gt; in FoodGo.CalendarViewModel.getDaysInMonth(date: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "FoodGo.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex.personal/Documents/developer/FoodGo/FoodGo/FoodGo/Modules/Components/Calendar/CalendarScrollView/ViewModel/CalendarViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

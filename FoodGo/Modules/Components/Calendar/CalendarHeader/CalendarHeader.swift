@@ -8,35 +8,43 @@
 import SwiftUI
 
 struct CalendarHeader: View {
-    let monthName: String
-    let year: Int?
     let leftArrowAction: ImageTapAction?
     let rightArrowAction: ImageTapAction?
+    @StateObject private var viewModel: CalendarViewModel
     
-    init(monthName: String, year: Int? = nil, leftArrowAction: ImageTapAction? = nil, rightArrowAction: ImageTapAction? = nil) {
-        self.monthName = monthName
+    init(viewModel: CalendarViewModel, leftArrowAction: ImageTapAction? = nil, rightArrowAction: ImageTapAction? = nil) {
+        _viewModel = StateObject(wrappedValue: viewModel)
         self.leftArrowAction = leftArrowAction
         self.rightArrowAction = rightArrowAction
-        self.year = year
     }
+    
     var body: some View {
         HStack(alignment: .center) {
             
-            FoodGoImageView(resoureName: "arrow.left", width: 24, height: 12, action: leftArrowAction)
-            if let year = year {
-                VStack {
-                    FoodGoTextView("\(year)", 10)
-                    FoodGoTextView(monthName, 18)
-                }
-            } else {
-                FoodGoTextView(monthName, 18)
+            FoodGoImageView(
+                resoureName: "arrow.left",
+                width: 24,
+                height: 12,
+                action: leftArrowAction ?? { viewModel.goToPreviousMonth()
+                })
+            VStack {
+                FoodGoTextView("\(viewModel.currentYear)", 10)
+                FoodGoTextView(viewModel.monthName, 18)
             }
-           
-            FoodGoImageView(resoureName: "arrow.right", width: 24, height: 12, action: rightArrowAction)
+            
+            FoodGoImageView(
+                resoureName: "arrow.right",
+                width: 24,
+                height: 12,
+                action: rightArrowAction ??  { viewModel.getNextMonth()
+                }
+            )
+        }.onAppear {
+            viewModel.getDaysInMonth()
         }
     }
 }
 
 #Preview {
-    CalendarHeader(monthName: "June", year: 2024)
+    CalendarHeader(viewModel: CalendarViewModel())
 }
