@@ -8,15 +8,19 @@
 import Foundation
 import NetworkLayer
 
-public final class GetFoodRemoteDataSource {
+protocol GetFoodRemoteDataSourceProtocol {
+     func getFoods(endpoint: GetFoodEndpoint) async throws -> GetFoodRemoteDTO
+}
+
+final class GetFoodRemoteDataSource: GetFoodRemoteDataSourceProtocol {
     private let remoteProvider: RequestProviderProtocol
     
     init(remoteProvider: RequestProviderProtocol) {
         self.remoteProvider = remoteProvider
     }
     
-    public func getFoods(endpoint: GetFoodEndpoint) async throws -> PayloadOne {
-        try await remoteProvider.execute(endpoint: endpoint, dto: PayloadOne.self)
+    public func getFoods(endpoint: GetFoodEndpoint) async throws -> GetFoodRemoteDTO {
+        try await remoteProvider.execute(endpoint: endpoint, dto: GetFoodRemoteDTO.self)
     }
 }
 
@@ -44,4 +48,3 @@ public struct GetFoodEndpoint: NetworkLayerEndpoint {
     }
 }
 
-public struct PayloadOne: Decodable {}

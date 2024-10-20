@@ -26,6 +26,8 @@ public extension NetworkLayerEndpoint {
         "https"
     }
     
+    var apiVersion: String? { nil }
+    
     var asURLRequest: URLRequest? {
         var versionedPath: String?
         var urlComponent = URLComponents()
